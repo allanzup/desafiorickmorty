@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="br.com.zup.rickandmorty.ui.detail.view.detailFragment"
+        android:name="br.com.zup.rickandmorty.ui.detail.view.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
 </navigation>
