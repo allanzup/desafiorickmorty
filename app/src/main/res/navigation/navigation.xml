@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_listFragment_to_detailFragment2"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="br.com.zup.rickandmorty.ui.detail.view.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="br.com.zup.rickandmorty.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>

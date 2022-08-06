@@ -14,4 +14,8 @@ class CharacterRepository(private val characterDao: CharacterDao) {
         characterDao.insertcharacter(list)
     }
     suspend fun getcharactrdao():List<RickMortyResult> = characterDao.getcharactes()
+    suspend fun getfavorite():List<RickMortyResult> = characterDao.getfavorite()
+    suspend fun updatefavorite(character:RickMortyResult){
+        characterDao.updatefsvorite(character)
+    }
 }

@@ -23,4 +23,6 @@ data class RickMortyResult(
     var species: String = "",
     @SerializedName("status")
     var status: String = "",
+    var favorite:Boolean=false
+
 ):Parcelable

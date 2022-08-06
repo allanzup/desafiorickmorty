@@ -1,4 +1,4 @@
-package br.com.zup.rickandmorty.ui.detail.viewmodel
+package br.com.zup.rickandmorty.ui.favorite
 
 import android.app.Application
 import android.util.Log
@@ -12,17 +12,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DetailViewModel(application: Application):AndroidViewModel(application) {
+class FavoriteViewModel(application: Application):AndroidViewModel(application) {
     private val useCase=CharacterUseCase(application)
-    private val _characterResponse = MutableLiveData<RickMortyResult>()
-    val characterResponse: LiveData<RickMortyResult> = _characterResponse
-    fun updatefavorite(character:RickMortyResult){
+    private val _characterResponse = MutableLiveData<List<RickMortyResult>>()
+    val characterResponse: LiveData<List<RickMortyResult>> = _characterResponse
+    fun getfavorite(){
         viewModelScope.launch {
             try {
                 val response= withContext(Dispatchers.IO){
-                    useCase.updatefavorite(character)
+                    useCase.getfavorite()
                 }
-                _characterResponse.value = response
+                _characterResponse.value=response
             }
             catch (e:Exception){
                 Log.i("erro","${e.message}")

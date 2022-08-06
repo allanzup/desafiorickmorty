@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 
 class DetailFragment : Fragment() {
 private lateinit var binding: FragmentDetailBinding
-
+private lateinit var characterfavirite:RickMortyResult
 
 
     override fun onCreateView(

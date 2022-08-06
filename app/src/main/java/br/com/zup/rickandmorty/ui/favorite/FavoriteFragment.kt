@@ -1,4 +1,4 @@
-package br.com.zup.rickandmorty.ui.list.view
+package br.com.zup.rickandmorty.ui.favorite
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,28 +8,31 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.zup.rickandmorty.R
 import br.com.zup.rickandmorty.data.model.RickMortyResult
+import br.com.zup.rickandmorty.databinding.FragmentFavoriteBinding
 import br.com.zup.rickandmorty.databinding.FragmentListBinding
 import br.com.zup.rickandmorty.ui.home.view.HomeActivity
+import br.com.zup.rickandmorty.ui.list.view.ListAdapter
 import br.com.zup.rickandmorty.ui.list.viewmodel.ListViewModel
 
-class ListFragment : Fragment() {
-    private lateinit var binding: FragmentListBinding
-    private val viewModel: ListViewModel by lazy {
-        ViewModelProvider(this)[ListViewModel::class.java]
+
+class FavoriteFragment : Fragment() {
+
+    private lateinit var binding: FragmentFavoriteBinding
+    private val viewModel: FavoriteViewModel by lazy {
+        ViewModelProvider(this)[FavoriteViewModel::class.java]
     }
-    private val adapter: ListAdapter by lazy {
-        ListAdapter(mutableListOf(), this::goToDetail)
+    private val adapter: FavoriteAdapter by lazy {
+        FavoriteAdapter(mutableListOf(), this::goToDetail)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentListBinding.inflate(inflater, container, false)
+        binding = FragmentFavoriteBinding.inflate(inflater, container, false)
 
 
         return binding.root
@@ -37,15 +40,11 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getCharacters()
+        viewModel.getfavorite()
         binding.RvList.adapter = adapter
         binding.RvList.layoutManager = GridLayoutManager(this.context, 2)
         observers()
-        binding.btnfavorite.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_listFragment_to_favoriteFragment)
-        }
-        (activity as HomeActivity).supportActionBar?.title = "Ricky and Morty"
+        (activity as HomeActivity).supportActionBar?.title = "Favoritos"
         (activity as HomeActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
     }
@@ -62,4 +61,5 @@ class ListFragment : Fragment() {
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_listFragment_to_detailFragment2, bundle)
     }
+
 }

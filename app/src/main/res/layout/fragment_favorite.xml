@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.list.view.ListFragment">
+    tools:context=".ui.favorite.FavoriteFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rv_List"
@@ -14,17 +14,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnfavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16"
-        android:backgroundTint="@color/cinza"
-        android:scaleType="center"
-        android:src="@drawable/ic_baseline_star_rate_24"
-        app:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="@dimen/size40dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

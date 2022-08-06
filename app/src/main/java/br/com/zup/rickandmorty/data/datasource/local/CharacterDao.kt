@@ -1,9 +1,6 @@
 package br.com.zup.rickandmorty.data.datasource.local
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import br.com.zup.rickandmorty.data.model.RickMortyResult
 
 @Dao
@@ -12,4 +9,8 @@ interface CharacterDao {
     fun getcharactes():List<RickMortyResult>
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertcharacter(list: List<RickMortyResult>)
+    @Query("SELECT * FROM tablebd WHERE favorite=1")
+    fun getfavorite():List<RickMortyResult>
+    @Update(onConflict = OnConflictStrategy.IGNORE)
+    fun updatefsvorite(character:RickMortyResult)
 }
