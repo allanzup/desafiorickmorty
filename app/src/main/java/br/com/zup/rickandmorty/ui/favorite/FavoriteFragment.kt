@@ -59,7 +59,7 @@ class FavoriteFragment : Fragment() {
     fun goToDetail(rickMortyResult: RickMortyResult) {
         val bundle = bundleOf("CHARACTER" to rickMortyResult)
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_listFragment_to_detailFragment2, bundle)
+            .navigate(R.id.action_favoriteFragment_to_detailFragment, bundle)
     }
 
 }

@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import br.com.zup.rickandmorty.data.model.RickMortyResult
 
-@Database(entities = [RickMortyResult::class], version = 1)
+@Database(entities = [RickMortyResult::class], version = 2)
 abstract class CharacterDataBase:RoomDatabase() {
     abstract fun characterdao():CharacterDao
     companion object {
