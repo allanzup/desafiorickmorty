@@ -36,7 +36,7 @@ class DetailFragment : Fragment() {
             binding.TvNome.text = "Nome:" + character.name
             binding.TvEspecie.text = "Espécie:" + character.species
             binding.TvGenero.text = "Genero:" + character.gender
-            binding.TvStatus.text = "Estatus:" + character.status
+            binding.TvStatus.text = "Status:" + character.status
             updatecollor(character)
 
             binding.Ivstar.setOnClickListener {

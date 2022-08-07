@@ -12,5 +12,5 @@ interface CharacterDao {
     @Query("SELECT * FROM tablebd WHERE favorite=1")
     fun getfavorite():List<RickMortyResult>
     @Update(onConflict = OnConflictStrategy.IGNORE)
-    fun updatefsvorite(character:RickMortyResult)
+    fun updatefavorite(character:RickMortyResult)
 }
