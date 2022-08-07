@@ -45,7 +45,7 @@ class FavoriteFragment : Fragment() {
         binding.RvList.layoutManager = GridLayoutManager(this.context, 2)
         observers()
         (activity as HomeActivity).supportActionBar?.title = "Favoritos"
-        (activity as HomeActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as HomeActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import br.com.zup.rickandmorty.R
@@ -36,10 +37,23 @@ class DetailFragment : Fragment() {
             binding.TvEspecie.text = "Espécie:" + character.species
             binding.TvGenero.text = "Genero:" + character.gender
             binding.TvStatus.text = "Estatus:" + character.status
+            updatecollor(character)
+
             binding.Ivstar.setOnClickListener {
                 character.favorite = !character.favorite
                 updatecollor(character)
                 viewModel.updatefavorite(character)
+                if (character.favorite) {
+                    Toast.makeText(
+                        context, "O personagem foi favoritado com sucesso",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        context, "O personagem foi desfavoritado com sucesso",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
             (activity as HomeActivity).supportActionBar?.title = character.name
 
